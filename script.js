@@ -16,22 +16,29 @@ const dat = document.querySelector(".date");
 window.addEventListener("load", () => {
   weathercard.style.opacity = ".7";
 });
+if (location.protocol === 'http:') {
+  const apiurl =
+    "http://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+  const apiurllatlong =
+    "http://api.openweathermap.org/data/2.5/weather?units=metric";
+} else {
+  const apiurl =
+    "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+  const apiurllatlong =
+    "https://api.openweathermap.org/data/2.5/weather?units=metric";
+}
 
 const apikey = "474317115933e3b98d7322811cc1723a";
-const apiurl =
-  "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-const apiurllatlong =
-  "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
 async function weathercheckk(city) {
   const response = await fetch(apiurl + city + `&appid=${apikey}`);
   if (response.status == 404) {
     message.innerHTML = "Invalid city";
     message.style.color = "red";
-    message.style.visibility="visible";
+    message.style.visibility = "visible";
   } else {
     searchbox.value = "";
-    message.style.visibility="hidden";
+    message.style.visibility = "hidden";
     var data = await response.json();
     if (data.weather[0].main == "Clouds") {
       weathericon.src = "imgs/cloudy.png";
@@ -65,12 +72,12 @@ async function weathercheck(lat, lon) {
   if (response.status == 404) {
     message.innerHTML = "An error occured";
     message.style.color = "red";
-    message.style.visibility="visible";
+    message.style.visibility = "visible";
   } else {
     searchbox.value = "";
     message.innerHTML = "Current";
     message.style.color = "white";
-    message.style.visibility="visible";
+    message.style.visibility = "visible";
     var data = await response.json();
     if (data.weather[0].main == "Clouds") {
       weathericon.src = "imgs/cloudy.png";

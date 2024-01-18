@@ -16,7 +16,7 @@ const dat = document.querySelector(".date");
 window.addEventListener("load", () => {
   weathercard.style.opacity = ".7";
 });
-if (location.protocol === 'http:') {
+if (location.protocol === "http:") {
   const apiurl =
     "http://api.openweathermap.org/data/2.5/weather?units=metric&q=";
   const apiurllatlong =

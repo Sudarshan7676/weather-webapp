@@ -16,17 +16,11 @@ const dat = document.querySelector(".date");
 window.addEventListener("load", () => {
   weathercard.style.opacity = ".7";
 });
-if (location.protocol === "http:") {
-  const apiurl =
-    "http://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-  const apiurllatlong =
-    "http://api.openweathermap.org/data/2.5/weather?units=metric";
-} else {
-  const apiurl =
-    "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-  const apiurllatlong =
-    "https://api.openweathermap.org/data/2.5/weather?units=metric";
-}
+
+const apiurl =
+  "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const apiurllatlong =
+  "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
 const apikey = "474317115933e3b98d7322811cc1723a";
 
